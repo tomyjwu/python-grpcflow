@@ -1,0 +1,49 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+// import "google/cloud/dialogflow/v2";
+
+message Context {
+  string name = 1;
+  uint32 lifespanCount = 2;
+  google.protobuf.Struct parameters = 3;
+}
+
+message FulfillmentMessage {
+  message FulfillmentText {
+    repeated string text = 1;
+  }
+  FulfillmentText text = 1;
+  // message Card...
+}
+
+message Intent {
+  string name = 1;
+  string displayName = 2;
+}
+
+message QueryResult {
+  string queryText = 1;
+  google.protobuf.Struct parameters = 2;
+  bool allRequiredParamsPresent = 3;
+  string fulfillmentText = 4;
+  FulfillmentMessage fulfillmentMessages = 5;
+  repeated Context outputContexts = 6;
+  Intent intent = 7;
+  float intentDetectionConfidence = 8;
+  string languageCode = 9;
+  // any diagnosticInfo = 9;
+}
+
+message DialogflowWebhookRequest {
+  string responseId = 1;
+  string session = 2;
+  QueryResult queryResult = 3;
+  // any originalDetectIntentRequest = 4;
+}
+
+message DialogflowWebhookResponse {
+  FulfillmentMessage fulfillmentMessages = 1;
+}
+service DialogflowWebhook {
+  rpc FulfillmentWebhook (DialogflowWebhookRequest) returns (DialogflowWebhookResponse);
+};
