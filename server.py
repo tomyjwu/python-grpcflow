@@ -19,7 +19,7 @@ class DialogflowWebhook(grpcflow_pb2_grpc.DialogflowWebhookServicer):
         response = grpcflow_pb2.DialogflowWebhookResponse(fulfillmentMessages=textResponse)
         return response
 
-    def FulfillmentWebhook(self,
+    def fulfillmentWebhook(self,
             request: grpcflow_pb2.DialogflowWebhookRequest,
             context: grpc.ServicerContext) -> grpcflow_pb2.DialogflowWebhookResponse:
         logging.info("Received request: %s", request)

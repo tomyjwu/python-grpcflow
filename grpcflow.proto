@@ -45,5 +45,5 @@ message DialogflowWebhookResponse {
   FulfillmentMessage fulfillmentMessages = 1;
 }
 service DialogflowWebhook {
-  rpc FulfillmentWebhook (DialogflowWebhookRequest) returns (DialogflowWebhookResponse);
+  rpc fulfillmentWebhook (DialogflowWebhookRequest) returns (DialogflowWebhookResponse);
 };

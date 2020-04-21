@@ -47,12 +47,11 @@ grpcurl \
     --plaintext \
     -proto grpcflow.proto \
     localhost:50061 \
-    DialogflowWebhook.FulfillmentWebhook
+    DialogflowWebhook.fulfillmentWebhook
 ```
 
 test not handled intents
 ```bash
-
 grpcurl \
     -d '{"responseId": "aabbccdd-4096", 
     "session": "project/fujen-smart-iot/agent/sessions/deadbeaf", 
@@ -72,9 +71,8 @@ grpcurl \
     --plaintext \
     -proto grpcflow.proto \
     localhost:50061 \
-    DialogflowWebhook.FulfillmentWebhook
+    DialogflowWebhook.fulfillmentWebhook
 ```
-
 
 # usage
 todo...
