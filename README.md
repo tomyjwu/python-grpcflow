@@ -49,5 +49,32 @@ grpcurl \
     localhost:50061 \
     DialogflowWebhook.FulfillmentWebhook
 ```
+
+test not handled intents
+```bash
+
+grpcurl \
+    -d '{"responseId": "aabbccdd-4096", 
+    "session": "project/fujen-smart-iot/agent/sessions/deadbeaf", 
+    "queryResult": { 
+        "queryText": "your name?", 
+        "parameters": {}, 
+        "allRequiredParamsPresent": true, 
+        "fulfillmentText": "my name is dialogflow", 
+        "fulfillmentMessages": {"text": {"text":["default name is dialogflow"]}}, 
+        "outputContexts": [], 
+        "parameters":{}, 
+        "intent": {"name":"intents/aabbccdd",  "displayName":"get-my-name"}, 
+        "intentDetectionConfidence":1, 
+        "languageCode":"zh-tw" 
+        } 
+    }' \
+    --plaintext \
+    -proto grpcflow.proto \
+    localhost:50061 \
+    DialogflowWebhook.FulfillmentWebhook
+```
+
+
 # usage
 todo...
