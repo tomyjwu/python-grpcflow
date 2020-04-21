@@ -29,20 +29,20 @@ On Linux and Mac you can install it with `curl -s https://grpc.io/get_grpcurl | 
 
 ```bash
 grpcurl \
-    -d '{"responseId": "aabbccdd-4096", \
-    "session": "project/fujen-smart-iot/agent/sessions/deadbeaf", \
-    "queryResult": { \
-        "queryText": "your name?", \
-        "parameters": {}, \
-        "allRequiredParamsPresent": true, \
-        "fulfillmentText": "my name is dialogflow", \
-        "fulfillmentMessages": {"text": {"text":["my name is dialogflow"]}}, \
-        "outputContexts": [{"name":"projects/fujen-smart-iot/agent/sessions/aabbccdd/contexts/__system_counters__", \
-        "parameters":{"no-input":0,"no-match":0}}, \
-        "intent": {"name":"projects/fujen-smart-iot/agent/intents/aabbccdd",  "displayName":"get-agent-name"}, \
-        "intentDetectionConfidence":1, \
-        "languageCode":"zh-tw" \
-        } \
+    -d '{"responseId": "aabbccdd-4096", 
+    "session": "project/fujen-smart-iot/agent/sessions/deadbeaf", 
+    "queryResult": { 
+        "queryText": "your name?", 
+        "parameters": {}, 
+        "allRequiredParamsPresent": true, 
+        "fulfillmentText": "my name is dialogflow", 
+        "fulfillmentMessages": {"text": {"text":["my name is dialogflow"]}}, 
+        "outputContexts": [{"name":"projects/fujen-smart-iot/agent/sessions/aabbccdd/contexts/__system_counters__"}], 
+        "parameters":{"no-input":0,"no-match":0}, 
+        "intent": {"name":"projects/fujen-smart-iot/agent/intents/aabbccdd",  "displayName":"get-agent-name"}, 
+        "intentDetectionConfidence":1, 
+        "languageCode":"zh-tw" 
+        } 
     }' \
     --plaintext \
     -proto grpcflow.proto \
@@ -51,4 +51,3 @@ grpcurl \
 ```
 # usage
 todo...
-
