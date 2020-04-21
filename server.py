@@ -9,6 +9,8 @@ import grpcflow_pb2_grpc
 
 import grpc
 
+from google.protobuf import json_format as json_format
+
 _PORT = os.environ["PORT"]
 
 class DialogflowWebhook(grpcflow_pb2_grpc.DialogflowWebhookServicer):
@@ -22,7 +24,8 @@ class DialogflowWebhook(grpcflow_pb2_grpc.DialogflowWebhookServicer):
     def fulfillmentWebhook(self,
             request: grpcflow_pb2.DialogflowWebhookRequest,
             context: grpc.ServicerContext) -> grpcflow_pb2.DialogflowWebhookResponse:
-        logging.info("Received request: %s", request)
+        json_string = json_format.MessageToJson(request)
+        logging.info("Received request: %s", json_string)
         intentDisplayName = request.queryResult.intent.displayName
         if intentDisplayName == "get-agent-name":
             res = self.get_agenet_name(request.queryResult)
