@@ -17,7 +17,9 @@ class DialogflowWebhook(grpcflow_pb2_grpc.DialogflowWebhookServicer):
             request: grpcflow_pb2.DialogflowWebhookRequest,
             context: grpc.ServicerContext) -> grpcflow_pb2.DialogflowWebhookResponse:
         logging.info("Received request: %s", request)
-        response = grpcflow_pb2.DialogflowWebhookResponse()
+        textObj = grpcflow_pb2.FulfillmentMessage.FulfillmentText(text=["my name is grpcflow"])
+        textResponse = grpcflow_pb2.FulfillmentMessage(text=textObj)
+        response = grpcflow_pb2.DialogflowWebhookResponse(fulfillmentMessages=textResponse)
         return response
 
 
