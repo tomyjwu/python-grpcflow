@@ -16,12 +16,24 @@ python -m grpc_tools.protoc \
     grpcflow.proto
 ```
 
+for windows
+```
+python -m grpc_tools.protoc     -I.     --python_out=.     --grpc_python_out=.     grpcflow.proto
+```
+
 start the server:
 
 ```bash
 export PORT=50061
 python server.py
 ```
+
+for windows
+```
+set PORT=50061
+python server.py
+```
+
 
 Now the server should be listening on port `50061`. We'll use the tool
 [`grpcurl`](https://github.com/fullstorydev/grpcurl) to manually interact with it.
